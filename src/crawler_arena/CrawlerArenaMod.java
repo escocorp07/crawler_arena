@@ -682,10 +682,10 @@ public class CrawlerArenaMod extends Plugin {
         timers.clear();
     }
 
-    public UnitType findType(String name){
+    public UnitType findType(String name) {
         Seq<UnitType> types = Seq.with(unitCosts.keys());
-        UnitType type = types.filter(u -> u.name.contains(name)).min(u -> Strings.levenshtein(u.name, name));
-        return type == null ? Seq.with(unitCosts.keys()).min(u -> Strings.levenshtein(u.name, name)) : type;
+        return types.minOpt(u -> Strings.levenshtein(u.name, name))
+                .orElse(null);
     }
 
     @Override
