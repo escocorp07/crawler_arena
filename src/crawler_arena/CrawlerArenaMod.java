@@ -29,6 +29,7 @@ import mindustry.world.blocks.payloads.BuildPayload;
 import mindustry.world.blocks.storage.CoreBlock;
 import mindustry.world.meta.Env;
 
+import mindustry.Vars;
 import static mindustry.Vars.*;
 import static crawler_arena.CVars.*;
 
