@@ -8,6 +8,7 @@ import arc.math.geom.*;
 import arc.struct.*;
 import arc.util.*;
 import arc.util.pooling.Pools;
+import mindustry.Vars;
 import mindustry.ai.types.*;
 import mindustry.content.*;
 import mindustry.entities.abilities.*;
@@ -683,7 +684,10 @@ public class CrawlerArenaMod extends Plugin {
     }
 
     public UnitType findType(String name) {
-        return Vars.content.unit(name);
+        UnitType t = Vars.content.unit(name);
+        if(unitCosts.containsKey(t))
+            return t;
+        return null;
     }
 
     @Override
