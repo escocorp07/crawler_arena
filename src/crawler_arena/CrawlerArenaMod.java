@@ -165,7 +165,8 @@ public class CrawlerArenaMod extends Plugin {
         });
 
         Events.on(BlockDestroyEvent.class, (e) -> {
-            toRespawn.add(e.tile.build);
+            if(e.tile.build.team == Vars.state.rules.defaultTeam)
+                toRespawn.add(e.tile.build);
         });
 
         Events.run(Trigger.update, () -> {
