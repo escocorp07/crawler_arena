@@ -687,6 +687,8 @@ public class CrawlerArenaMod extends Plugin {
 
     public UnitType findType(String name) {
         UnitType t = Vars.content.unit(name);
+        if(t == null)
+            return null;
         if(unitCosts.containsKey(t))
             return t;
         return null;
