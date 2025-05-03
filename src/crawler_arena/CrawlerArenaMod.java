@@ -819,6 +819,10 @@ public class CrawlerArenaMod extends Plugin {
 
         handler.<Player>register("cost", "<type>", "Lookup the cost of a unit", (args, player) -> {
             UnitType type = findType(args[0].toLowerCase());
+            if(type == null){
+                Bundle.bundled(player, "commands.upgrade.unit-not-found");
+                return;
+            }
             int cost = unitCosts.get(type, -1);
             if(cost == -1){
                 Bundle.bundled(player, "commands.upgrade.unit-not-found");
